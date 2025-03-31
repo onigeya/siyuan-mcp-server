@@ -6,9 +6,9 @@ export function registerSqlTools(server: McpServer): void {
     // Execute SQL query
     server.tool(
         'siyuan_sql_query',
-        '执行 SQL 查询',
+        'Execute SQL query',
         {
-            stmt: z.string().describe('SQL 语句')
+            stmt: z.string().describe('SQL statement')
         },
         async ({ stmt }) => {
             const result = await client.post('/api/query/sql', {
@@ -26,7 +26,7 @@ export function registerSqlTools(server: McpServer): void {
     // Flush transaction
     server.tool(
         'siyuan_sql_flushTransaction',
-        '刷新事务',
+        'Flush transaction',
         {},
         async () => {
             const result = await client.post('/api/query/flushTransaction', {});

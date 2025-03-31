@@ -6,10 +6,10 @@ export function registerNotificationTools(server: McpServer): void {
     // Push message
     server.tool(
         'siyuan_notification_pushMsg',
-        '推送普通消息',
+        'Push message',
         {
-            msg: z.string().describe('消息内容'),
-            timeout: z.number().optional().describe('消息显示时长（毫秒），默认 7000')
+            msg: z.string().describe('Message content'),
+            timeout: z.number().optional().describe('The duration of the message display in milliseconds. This field can be omitted, the default is 7000 milliseconds')
         },
         async ({ msg, timeout }) => {
             const result = await client.post('/api/notification/pushMsg', {
@@ -28,10 +28,10 @@ export function registerNotificationTools(server: McpServer): void {
     // Push error message
     server.tool(
         'siyuan_notification_pushErrMsg',
-        '推送错误消息',
+        'Push error message',
         {
-            msg: z.string().describe('消息内容'),
-            timeout: z.number().optional().describe('消息显示时长（毫秒），默认 7000')
+            msg: z.string().describe('Message content'),
+            timeout: z.number().optional().describe('The duration of the message display in milliseconds. This field can be omitted, the default is 7000 milliseconds')
         },
         async ({ msg, timeout }) => {
             const result = await client.post('/api/notification/pushErrMsg', {
