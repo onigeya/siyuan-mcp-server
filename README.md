@@ -1,4 +1,5 @@
 # SiYuan Note MCP Server
+[![smithery badge](https://smithery.ai/badge/@onigeya/siyuan-mcp-server)](https://smithery.ai/server/@onigeya/siyuan-mcp-server)
 
 一个为思源笔记提供 Model Context Protocol 服务的实现。该服务器使 LLMs 能够通过一组标准化的工具与思源笔记进行交互。
 
@@ -134,61 +135,9 @@
 
 ### 安装
 
-```bash
-npm install @onigeya/siyuan-mcp-server
-```
+#### 安装到思源插件目录
 
-### 环境变量配置
-
-服务器需要以下环境变量：
-
-* `SIYUAN_API_URL`：思源笔记 API 地址（可选，默认为 `http://localhost:6806`）
-* `SIYUAN_TOKEN`：思源笔记 API 令牌（必需，可在思源笔记设置-关于中查看）
-
-你可以通过以下方式设置环境变量：
-
-1. 在系统中设置：
-```bash
-# Linux/macOS
-export SIYUAN_API_URL=http://localhost:6806
-export SIYUAN_TOKEN=your_token_here
-
-# Windows (PowerShell)
-$env:SIYUAN_API_URL = "http://localhost:6806"
-$env:SIYUAN_TOKEN = "your_token_here"
-```
-
-2. 使用 .env 文件：
-```env
-SIYUAN_API_URL=http://localhost:6806
-SIYUAN_TOKEN=your_token_here
-```
-
-3. 在运行命令时设置：
-```bash
-SIYUAN_TOKEN=your_token_here pnpm start
-```
-
-### 配置
-
-在你的 `claude_desktop_config.json` 的 "mcpServers" 部分添加以下配置：
-
-```json
-{
-  "mcpServers": {
-    "siyuan": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@onigeya/siyuan-mcp-server"
-      ],
-      "env": {
-        "SIYUAN_TOKEN": "your_token_here"
-      }
-    }
-  }
-}
-```
+TODO
 
 ### 构建
 
@@ -201,7 +150,3 @@ pnpm build
 ```bash
 pnpm start
 ```
-
-## 许可证
-
-本项目基于 ISC 许可证开源。这意味着你可以自由使用、修改和分发本软件，但需要遵守 ISC 许可证的条款和条件。详情请参阅项目仓库中的 LICENSE 文件。
