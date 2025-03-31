@@ -6,9 +6,9 @@ export function registerFileTools(server: McpServer): void {
     // Get file
     server.tool(
         'siyuan_file_getFile',
-        '获取文件',
+        'Get file',
         {
-            path: z.string().describe('文件路径')
+            path: z.string().describe('The file path under the workspace path')
         },
         async ({ path }) => {
             const result = await client.post('/api/file/getFile', {
@@ -26,12 +26,12 @@ export function registerFileTools(server: McpServer): void {
     // Put file
     server.tool(
         'siyuan_file_putFile',
-        '写入文件',
+        'Put file',
         {
-            path: z.string().describe('文件路径'),
-            isDir: z.boolean().optional().describe('是否为目录'),
-            modTime: z.number().optional().describe('修改时间'),
-            file: z.any().optional().describe('文件内容')
+            path: z.string().describe('The file path under the workspace path'),
+            isDir: z.boolean().optional().describe('Whether it is a directory'),
+            modTime: z.number().optional().describe('Modification time'),
+            file: z.any().optional().describe('File content')
         },
         async ({ path, isDir, modTime, file }) => {
             const formData = new FormData();
@@ -53,9 +53,9 @@ export function registerFileTools(server: McpServer): void {
     // Remove file
     server.tool(
         'siyuan_file_removeFile',
-        '删除文件',
+        'Remove file',
         {
-            path: z.string().describe('文件路径')
+            path: z.string().describe('The file path under the workspace path')
         },
         async ({ path }) => {
             const result = await client.post('/api/file/removeFile', {
@@ -73,10 +73,10 @@ export function registerFileTools(server: McpServer): void {
     // Rename file
     server.tool(
         'siyuan_file_renameFile',
-        '重命名文件',
+        'Rename file',
         {
-            path: z.string().describe('原文件路径'),
-            newPath: z.string().describe('新文件路径')
+            path: z.string().describe('The file path under the workspace path'),
+            newPath: z.string().describe('The new file path under the workspace path')
         },
         async ({ path, newPath }) => {
             const result = await client.post('/api/file/renameFile', {
@@ -95,9 +95,9 @@ export function registerFileTools(server: McpServer): void {
     // List files
     server.tool(
         'siyuan_file_readDir',
-        '列出目录内容',
+        'List files',
         {
-            path: z.string().describe('目录路径')
+            path: z.string().describe('The dir path under the workspace path')
         },
         async ({ path }) => {
             const result = await client.post('/api/file/readDir', {
