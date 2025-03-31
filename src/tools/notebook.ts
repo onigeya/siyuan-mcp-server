@@ -2,20 +2,20 @@ import { z } from 'zod';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { client } from '../utils/client.js';
 
-// 笔记本相关的 Schema 定义
+// Notebook related schemas
 const NotebookSchema = {
-    id: z.string().describe('笔记本 ID'),
-    name: z.string().describe('笔记本名称'),
-    icon: z.string().describe('笔记本图标'),
-    sort: z.number().describe('排序序号'),
-    closed: z.boolean().describe('是否关闭')
+    id: z.string().describe('Notebook ID'),
+    name: z.string().describe('Notebook name'),
+    icon: z.string().describe('Notebook icon'),
+    sort: z.number().describe('Sort number'),
+    closed: z.boolean().describe('Whether the notebook is closed')
 } as const;
 
 const NotebookConfSchema = {
-    name: z.string().describe('笔记本名称'),
-    closed: z.boolean().describe('是否关闭'),
-    refCreateSavePath: z.string().describe('引用创建保存路径'),
-    createDocNameTemplate: z.string().describe('创建文档名称模板')
+    name: z.string().describe('Notebook name'),
+    closed: z.boolean().describe('Whether the notebook is closed'),
+    refCreateSavePath: z.string().describe('Reference creation save path'),
+    createDocNameTemplate: z.string().describe('Document name creation template')
 } as const;
 
 // 参数 Schema 定义

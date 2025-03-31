@@ -6,10 +6,10 @@ export function registerTemplatesTools(server: McpServer): void {
     // Render template
     server.tool(
         'siyuan_template_render',
-        '渲染模板',
+        'Render a template',
         {
-            id: z.string().describe('模板文档块 ID'),
-            path: z.string().optional().describe('可选的目标路径')
+            id: z.string().describe('Template document block ID'),
+            path: z.string().optional().describe('Optional target path')
         },
         async ({ id, path }) => {
             const result = await client.post('/api/template/render', {
@@ -28,9 +28,9 @@ export function registerTemplatesTools(server: McpServer): void {
     // Render Sprig
     server.tool(
         'siyuan_template_renderSprig',
-        '渲染 Sprig 模板',
+        'Render Sprig',
         {
-            template: z.string().describe('Sprig 模板内容')
+            template: z.string().describe('Sprig template content')
         },
         async ({ template }) => {
             const result = await client.post('/api/template/renderSprig', {

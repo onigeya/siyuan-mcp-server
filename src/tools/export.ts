@@ -6,9 +6,9 @@ export function registerExportTools(server: McpServer): void {
     // Export Markdown
     server.tool(
         'siyuan_export_exportMdContent',
-        '导出 Markdown 内容',
+        'Export Markdown',
         {
-            id: z.string().describe('要导出的文档块 ID')
+            id: z.string().describe('ID of the doc block to export')
         },
         async ({ id }) => {
             const result = await client.post('/api/export/exportMdContent', {
@@ -26,10 +26,10 @@ export function registerExportTools(server: McpServer): void {
     // Export files and folders
     server.tool(
         'siyuan_export_exportResources',
-        '导出文件和文件夹',
+        'Export files and folders',
         {
-            paths: z.array(z.string()).describe('要导出的文件或文件夹路径列表'),
-            name: z.string().optional().describe('导出的文件名，默认为 export-YYYY-MM-DD_hh-mm-ss.zip')
+            paths: z.array(z.string()).describe('A list of file or folder paths to be exported, the same filename/folder name will be overwritten'),
+            name: z.string().optional().describe('The exported file name, which defaults to export-YYYY-MM-DD_hh-mm-ss.zip when not set')
         },
         async ({ paths, name }) => {
             const result = await client.post('/api/export/exportResources', {

@@ -9,22 +9,22 @@ const encodingSchema = z.enum([
     'base32', 'base32-std',
     'base32-hex',
     'hex'
-]).describe('编码方式');
+]).describe('The encoding scheme');
 
 export function registerNetworkTools(server: McpServer): void {
     // Forward proxy
     server.tool(
         'siyuan_network_forwardProxy',
-        '转发代理请求',
+        'Forward proxy',
         {
-            url: z.string().describe('要转发的 URL'),
-            method: z.string().optional().describe('HTTP 方法，默认为 POST'),
-            timeout: z.number().optional().describe('超时时间（毫秒），默认为 7000'),
-            contentType: z.string().optional().describe('Content-Type，默认为 application/json'),
-            headers: z.array(z.record(z.string())).optional().describe('HTTP 头'),
-            payload: z.union([z.record(z.any()), z.string()]).optional().describe('HTTP 负载，对象或字符串'),
-            payloadEncoding: encodingSchema.optional().describe('payload 的编码方式，默认为 text'),
-            responseEncoding: encodingSchema.optional().describe('响应 body 的编码方式，默认为 text')
+            url: z.string().describe('URL to forward'),
+            method: z.string().optional().describe('HTTP method, default is POST'),
+            timeout: z.number().optional().describe('Timeout in milliseconds, default is 7000'),
+            contentType: z.string().optional().describe('Content-Type, default is application/json'),
+            headers: z.array(z.record(z.string())).optional().describe('HTTP headers'),
+            payload: z.union([z.record(z.any()), z.string()]).optional().describe('HTTP payload, object or string'),
+            payloadEncoding: encodingSchema.optional().describe('The encoding scheme used by payload, default is text'),
+            responseEncoding: encodingSchema.optional().describe('The encoding scheme used by body in response data, default is text')
         },
         async ({ url, method, timeout, contentType, headers, payload, payloadEncoding, responseEncoding }) => {
             const result = await client.post('/api/network/forwardProxy', {

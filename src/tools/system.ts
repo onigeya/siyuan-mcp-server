@@ -6,7 +6,7 @@ export function registerSystemTools(server: McpServer): void {
     // Get boot progress
     server.tool(
         'siyuan_system_bootProgress',
-        '获取启动进度',
+        'Get boot progress',
         {},
         async () => {
             const result = await client.post('/api/system/bootProgress', {});
@@ -22,7 +22,7 @@ export function registerSystemTools(server: McpServer): void {
     // Get system version
     server.tool(
         'siyuan_system_version',
-        '获取系统版本',
+        'Get system version',
         {},
         async () => {
             const result = await client.post('/api/system/version', {});
@@ -38,7 +38,7 @@ export function registerSystemTools(server: McpServer): void {
     // Get current time
     server.tool(
         'siyuan_system_currentTime',
-        '获取系统当前时间',
+        'Get the current time of the system',
         {},
         async () => {
             const result = await client.post('/api/system/currentTime', {});
