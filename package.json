@@ -1,20 +1,38 @@
 {
   "name": "@onigeya/siyuan-mcp-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "思源笔记MCP服务器",
-  "main": "dist/server.js",
   "type": "module",
   "private": false,
+  "main": "./dist/server.js",
+  "module": "./dist/server.js",
+  "types": "./dist/server.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js",
+      "default": "./dist/server.js"
+    },
+    "./tools": {
+      "types": "./dist/tools/index.d.ts",
+      "import": "./dist/tools/index.js",
+      "default": "./dist/tools/index.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
-    "dev": "node --loader ts-node/esm src/server.ts"
+    "dev": "node --loader ts-node/esm src/server.ts",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "keywords": [
     "siyuan",
