@@ -1,6 +1,6 @@
 {
   "name": "@onigeya/siyuan-mcp-server",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "思源笔记MCP服务器",
   "type": "module",
   "private": false,
