@@ -28,31 +28,14 @@ jobs:
         id: get_version
         run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
-      - name: Generate Changelog
-        id: changelog
-        run: |
-          # 获取上一个标签
-          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
-          if [ -z "$PREVIOUS_TAG" ]; then
-            # 如果没有上一个标签，获取所有提交
-            git log --pretty=format:"* %s (%h)" > CHANGELOG.md
-          else
-            # 获取两个标签之间的提交
-            git log --pretty=format:"* %s (%h)" $PREVIOUS_TAG..HEAD > CHANGELOG.md
-          fi
-          # 将 changelog 内容设置为输出变量，用于后续步骤
-          delimiter="CHANGELOG_EOF"
-          echo "CHANGELOG<<$delimiter" >> $GITHUB_OUTPUT
-          cat CHANGELOG.md >> $GITHUB_OUTPUT
-          echo "$delimiter" >> $GITHUB_OUTPUT
-
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           name: Release ${{ steps.get_version.outputs.VERSION }}
           body: |
-            ## Changelog
-            ${{ steps.changelog.outputs.CHANGELOG }}
+            这是一个自动构建的发布版本。
+            
+            This is an automated release build.
           draft: false
           prerelease: false
         env:
