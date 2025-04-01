@@ -8,7 +8,11 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "declaration": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
