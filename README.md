@@ -3,115 +3,135 @@
 
 一个 MCP 服务器实现，提供与思源笔记系统的集成，使 AI 模型能够访问和操作笔记数据。
 
-## 功能特性
+An MCP server implementation that provides integration with the SiYuan Note system, enabling AI models to access and manipulate note data.
 
-* 笔记本的创建、打开和管理
-* 文档的创建、编辑和组织
-* 内容块的精确操作和控制
-* 文件和资源的管理
-* SQL 查询支持
-* 自定义属性管理
-* 书签和标签管理
-* 文档导出和转换
+## 功能特性 | Features
 
-## 命令列表
+* 笔记本管理 | Notebook Management
+* 文档操作 | Document Operations
+* 内容块控制 | Block Control
+* 文件和资源管理 | File and Asset Management
+* SQL 查询支持 | SQL Query Support
+* 属性管理 | Attribute Management
+* 导出和转换 | Export and Conversion
+* 系统功能 | System Functions
 
-所有命令都支持使用 `man` 查询获取详细说明，例如：
+## 命令列表 | Command List
+
+所有命令都支持使用 `help` 查询获取详细说明。例如：
+
+All commands support detailed documentation via the `help` command. For example:
 
 ```json
 {
-  "type": "man",
+  "type": "help",
   "params": {
-    "type": "blocks.insert"
+    "type": "block.insertBlock"
   }
 }
 ```
 
-### 笔记本管理
+### 资源管理 | Asset Management
 
-* `notebook.lsNotebooks` - 列出所有笔记本
-* `notebook.openNotebook` - 打开笔记本
-* `notebook.closeNotebook` - 关闭笔记本
-* `notebook.createNotebook` - 创建笔记本
-* `notebook.removeNotebook` - 删除笔记本
-* `notebook.renameNotebook` - 重命名笔记本
-* `notebook.getNotebookConf` - 获取笔记本配置
-* `notebook.setNotebookConf` - 设置笔记本配置
+* `assets.uploadAssets` - 上传资源文件 | Upload assets
 
-### 文档管理
+### 属性管理 | Attribute Management
 
-* `documents.createDocWithMd` - 使用 Markdown 创建文档
-* `documents.renameDoc` - 重命名文档
-* `documents.removeDoc` - 删除文档
-* `documents.moveDocs` - 移动文档
-* `documents.getHPathByPath` - 获取文档可读路径
-* `documents.getHPathByID` - 通过 ID 获取文档可读路径
+* `attr.setBlockAttrs` - 设置块属性 | Set block attributes
+* `attr.getBlockAttrs` - 获取块属性 | Get block attributes
 
-### 内容块操作
+### 内容块操作 | Block Operations
 
-* `blocks.insert` - 插入内容块
-* `blocks.append` - 追加内容块
-* `blocks.prepend` - 前置插入内容块
-* `blocks.update` - 更新内容块
-* `blocks.delete` - 删除内容块
-* `blocks.move` - 移动内容块
-* `blocks.fold` - 折叠内容块
-* `blocks.unfold` - 展开内容块
-* `blocks.getKramdown` - 获取块的 Markdown 内容
-* `blocks.getChildren` - 获取子块列表
-* `blocks.transferRef` - 转移块引用
+* `block.insertBlock` - 插入内容块 | Insert a block
+* `block.updateBlock` - 更新内容块 | Update block content
+* `block.deleteBlock` - 删除内容块 | Delete a block
+* `block.moveBlock` - 移动内容块 | Move a block
+* `block.getBlockKramdown` - 获取块的 Markdown 内容 | Get block Kramdown content
 
-### 资源管理
+### 格式转换 | Format Conversion
 
-* `assets.upload` - 上传资源文件
-* `assets.remove` - 删除资源文件
+* `convert.pandoc` - 使用 Pandoc 转换内容 | Convert content using Pandoc
 
-### 属性管理
+### 导出功能 | Export Functions
 
-* `attributes.getBlockAttrs` - 获取块属性
-* `attributes.setBlockAttrs` - 设置块属性
+* `export.exportNotebook` - 导出笔记本 | Export notebook
+* `export.exportDoc` - 导出文档 | Export document
 
-### 书签管理
+### 文件操作 | File Operations
 
-* `bookmarks.getBookmark` - 获取书签
-* `bookmarks.renameBookmark` - 重命名书签
-* `bookmarks.removeBookmark` - 删除书签
-* `bookmarks.moveBookmark` - 移动书签
+* `file.getFile` - 获取文件内容 | Get file content
+* `file.putFile` - 写入文件内容 | Put file content
+* `file.removeFile` - 删除文件 | Remove file
+* `file.readDir` - 读取目录内容 | List files in directory
 
-### 文件操作
+### 文档树操作 | File Tree Operations
 
-* `file.readDir` - 读取目录内容
-* `file.removeFile` - 删除文件
-* `file.putFile` - 写入文件内容
-* `file.getFile` - 获取文件内容
+* `filetree.createDocWithMd` - 使用 Markdown 创建文档 | Create document with Markdown
+* `filetree.renameDoc` - 重命名文档 | Rename document
+* `filetree.removeDoc` - 删除文档 | Remove document
+* `filetree.moveDocs` - 移动文档 | Move documents
+* `filetree.getHPathByPath` - 获取文档可读路径 | Get document HPath by path
+* `filetree.getHPathByID` - 通过 ID 获取文档可读路径 | Get document HPath by ID
 
-### 导出转换
+### 网络代理 | Network Proxy
 
-* `export.exportMdContent` - 导出 Markdown 内容
-* `export.exportDocx` - 导出 Word 文档
+* `network.forwardProxy` - 网络请求代理 | Forward proxy request
 
-### 网络代理
+### 笔记本管理 | Notebook Management
 
-* `network.serveProxy` - 网络请求代理
+* `notebook.lsNotebooks` - 列出所有笔记本 | List all notebooks
+* `notebook.openNotebook` - 打开笔记本 | Open notebook
+* `notebook.closeNotebook` - 关闭笔记本 | Close notebook
+* `notebook.renameNotebook` - 重命名笔记本 | Rename notebook
+* `notebook.createNotebook` - 创建笔记本 | Create notebook
+* `notebook.removeNotebook` - 删除笔记本 | Remove notebook
+* `notebook.getNotebookConf` - 获取笔记本配置 | Get notebook configuration
+* `notebook.setNotebookConf` - 设置笔记本配置 | Set notebook configuration
 
-### 通知提醒
+### 通知提醒 | Notifications
 
-* `notification.pushMsg` - 发送消息通知
-* `notification.pushErrMsg` - 发送错误通知
+* `notification.pushMsg` - 发送消息通知 | Push message notification
+* `notification.pushErrMsg` - 发送错误通知 | Push error message notification
 
-## 使用说明
+### 查询功能 | Query Functions
 
-### 环境变量配置
+* `query.sql` - 执行 SQL 查询 | Execute SQL query
+* `query.block` - 通过 ID 查询块 | Query block by ID
+
+### 搜索功能 | Search Functions
+
+* `search.fullTextSearch` - 全文搜索 | Full text search
+
+### SQL 查询 | SQL Query
+
+* `sql.sql` - 执行 SQL 查询 | Execute SQL query
+
+### 系统功能 | System Functions
+
+* `system.getBootProgress` - 获取启动进度 | Get boot progress
+* `system.getVersion` - 获取系统版本 | Get system version
+* `system.getCurrentTime` - 获取当前时间 | Get current time
+
+### 模板功能 | Template Functions
+
+* `template.renderTemplate` - 渲染模板 | Render template
+* `template.renderSprig` - 渲染 Sprig 模板 | Render Sprig template
+
+## 使用说明 | Usage
+
+### 环境变量配置 | Environment Variables
 
 服务器需要配置以下环境变量：
+The server requires the following environment variables:
 
-* `SIYUAN_TOKEN` - 思源笔记 API 令牌（必需）
-  * 在思源笔记设置 - 关于 中查看
-  * 用于 API 认证
+* `SIYUAN_TOKEN` - 思源笔记 API 令牌（必需）| SiYuan Note API token (required)
+  * 在思源笔记设置 - 关于 中查看 | Check in SiYuan Note Settings - About
+  * 用于 API 认证 | Used for API authentication
 
-### 在 Claude Desktop 中使用
+### 在 Claude Desktop 中使用 | Using in Claude Desktop
 
 将以下配置添加到 `claude_desktop_config.json`：
+Add the following configuration to `claude_desktop_config.json`:
 
 ```json
 {
@@ -123,67 +143,69 @@
         "@onigeya/siyuan-mcp-server"
       ],
       "env": {
-        "SIYUAN_TOKEN": "你的思源笔记令牌"
+        "SIYUAN_TOKEN": "your-siyuan-token"
       }
     }
   }
 }
 ```
 
-### 本地运行
+### 本地运行 | Local Run
 
-1. 安装依赖：
+1. 安装依赖 | Install dependencies:
 ```bash
 pnpm install
 ```
 
-2. 设置环境变量：
+2. 设置环境变量 | Set environment variables:
 ```bash
 # Windows
-set SIYUAN_TOKEN=你的思源笔记令牌
+set SIYUAN_TOKEN=your-siyuan-token
 
 # Linux/macOS
-export SIYUAN_TOKEN=你的思源笔记令牌
+export SIYUAN_TOKEN=your-siyuan-token
 ```
 
-3. 启动服务：
+3. 启动服务 | Start service:
 ```bash
 pnpm start
 ```
 
-### Docker 运行
+### Docker 运行 | Docker Run
 
 ```bash
 docker run --rm -i \
-  -e SIYUAN_TOKEN=你的思源笔记令牌 \
+  -e SIYUAN_TOKEN=your-siyuan-token \
   mcp/siyuan
 ```
 
-## 构建
+## 构建 | Build
 
-### 环境要求
+### 环境要求 | Requirements
 
 * Node.js >= 23.10.0
 * pnpm
 
-### 本地构建
+### 本地构建 | Local Build
 
 ```bash
 pnpm build
 ```
 
-### Docker 构建
+### Docker 构建 | Docker Build
 
 ```bash
 docker build -t mcp/siyuan .
 ```
 
-## 许可证
+## 许可证 | License
 
 本项目基于 ISC 许可证发布。这意味着你可以自由使用、修改和分发本软件，但需要遵守 ISC 许可证的条款和条件。详细信息请参见项目仓库中的 LICENSE 文件。
 
-## 相关资源
+This project is released under the ISC License. This means you can freely use, modify, and distribute this software, subject to the terms and conditions of the ISC License. For detailed information, please refer to the LICENSE file in the project repository.
 
-- [思源笔记](https://github.com/siyuan-note/siyuan) - 思源笔记官方仓库
-- [Model Context Protocol](https://modelcontextprotocol.io/) - MCP 官方文档
-- [思源笔记 API 文档](https://github.com/siyuan-note/siyuan/blob/master/API.md) - 思源笔记 API 参考
+## 相关资源 | Related Resources
+
+- [思源笔记 | SiYuan Note](https://github.com/siyuan-note/siyuan)
+- [Model Context Protocol](https://modelcontextprotocol.io/)
+- [思源笔记 API 文档 | SiYuan Note API Documentation](https://github.com/siyuan-note/siyuan/blob/master/API.md)

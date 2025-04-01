@@ -1,23 +1,25 @@
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { registerMetaTools } from './tools/core/meta.js';
-import { registerCommandTools } from './tools/core/command.js';
-import { registerQueryTools } from './tools/core/query.js';
-import { registerNotebookCommands, registerNotebookQueries } from './tools/core/handlers/notebooks.js';
-import { registerAssetsHandlers } from './tools/core/handlers/assets.js';
-import { registerAttributesHandlers } from './tools/core/handlers/attributes.js';
-import { registerBlocksHandlers } from './tools/core/handlers/blocks.js';
-import { registerConversionHandlers } from './tools/core/handlers/conversion.js';
-import { registerDocumentsHandlers } from './tools/core/handlers/documents.js';
-import { registerExportHandlers } from './tools/core/handlers/export.js';
-import { registerFileHandlers } from './tools/core/handlers/file.js';
-import { registerNetworkHandlers } from './tools/core/handlers/network.js';
-import { registerNotificationHandlers } from './tools/core/handlers/notification.js';
-import { registerSqlHandlers } from './tools/core/handlers/sql.js';
-import { registerSystemHandlers } from './tools/core/handlers/system.js';
-import { registerTemplatesHandlers } from './tools/core/handlers/templates.js';
-import { registerBookmarksHandlers } from './tools/core/handlers/bookmarks.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { registerCommandTool } from './tools/commands.js';
+import { registerQueryTool } from './tools/queries.js';
+import { registerHelpTool } from './tools/help.js';
+import { registerNotebookHandlers } from './tools/commands/notebook.js';
+import { registerFiletreeHandlers } from './tools/commands/filetree.js';
+import { registerBlockHandlers } from './tools/commands/block.js';
+import { registerAttrHandlers } from './tools/commands/attr.js';
+import { registerSqlHandlers } from './tools/commands/sql.js';
+import { registerQueryHandlers } from './tools/commands/query.js';
+import { registerSearchHandlers } from './tools/commands/search.js';
+import { registerAssetsHandlers } from './tools/commands/assets.js';
+import { registerFileHandlers } from './tools/commands/file.js';
+import { registerExportHandlers } from './tools/commands/export.js';
+import { registerTemplateHandlers } from './tools/commands/template.js';
+import { registerNotificationHandlers } from './tools/commands/notification.js';
+import { registerSystemHandlers } from './tools/commands/system.js';
+import { registerConvertHandlers } from './tools/commands/convert.js';
+import { registerNetworkHandlers } from './tools/commands/network.js';
 
+// 创建 MCP 服务器实例
 const server = new McpServer({
     name: "siyuan-mcp-server",
     version: "1.0.0",
@@ -25,29 +27,33 @@ const server = new McpServer({
         tools: {},
     },
 });
+
+// 创建传输层实例
 const transport = new StdioServerTransport();
 
-// 注册所有处理器
-registerNotebookCommands();
-registerNotebookQueries();
-registerAssetsHandlers();
-registerAttributesHandlers();
-registerBlocksHandlers();
-registerConversionHandlers();
-registerDocumentsHandlers();
-registerExportHandlers();
-registerFileHandlers();
-registerNetworkHandlers();
-registerNotificationHandlers();
+// 注册命令处理器
+registerNotebookHandlers();
+registerFiletreeHandlers();
+registerBlockHandlers();
+registerAttrHandlers();
 registerSqlHandlers();
+registerQueryHandlers();
+registerSearchHandlers();
+registerAssetsHandlers();
+registerFileHandlers();
+registerExportHandlers();
+registerTemplateHandlers();
+registerNotificationHandlers();
 registerSystemHandlers();
-registerTemplatesHandlers();
-registerBookmarksHandlers();
+registerConvertHandlers();
+registerNetworkHandlers();
 
-// 注册核心工具
-registerMetaTools(server);
-registerCommandTools(server);
-registerQueryTools(server);
+// 注册工具
+registerCommandTool(server);
+registerQueryTool(server);
+registerHelpTool(server);
 
 // 启动服务器
 server.connect(transport);
+
+export { server };

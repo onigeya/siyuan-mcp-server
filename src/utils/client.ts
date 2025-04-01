@@ -1,9 +1,25 @@
 import axios, { AxiosInstance } from 'axios';
+import { CommandHandler } from './registry.js';
 
 export interface SiYuanResponse<T = any> {
     code: number;
     msg: string;
     data: T;
+}
+
+// 创建标准 handler 的工厂函数
+export function createHandler(endpoint: string): (params: unknown) => Promise<any> {
+    return async (params: unknown) => {
+        const response = await client.post(endpoint, params);
+        return {
+            content: [
+                {
+                    type: 'text',
+                    text: JSON.stringify(response.data)
+                }
+            ]
+        };
+    };
 }
 
 class SiYuanClient {
