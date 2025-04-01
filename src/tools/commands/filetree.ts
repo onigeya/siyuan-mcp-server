@@ -44,7 +44,7 @@ const createDocWithMdHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Create a document with Markdown content',
+                description: 'This example demonstrates creating a new document with a markdown heading, specifying both the target notebook and the document path.',
                 params: {
                     notebook: "20210817205410-2kvfpfn",
                     path: "/test/doc.md",
@@ -96,7 +96,7 @@ const renameDocHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Rename a document',
+                description: 'This example shows how to change the title of an existing document while maintaining its location in the notebook hierarchy.',
                 params: {
                     notebook: "20210817205410-2kvfpfn",
                     path: "/test/doc.md",
@@ -140,7 +140,7 @@ const removeDocHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Remove a document',
+                description: 'This example demonstrates deleting a document from a specific notebook, removing it from the file tree structure.',
                 params: {
                     notebook: "20210817205410-2kvfpfn",
                     path: "/test/doc.md"
@@ -189,7 +189,7 @@ const moveDocsHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Move documents',
+                description: 'This example shows how to relocate multiple documents to a new location within a target notebook, preserving their content and relationships.',
                 params: {
                     fromPaths: ["/test/doc1.md", "/test/doc2.md"],
                     toNotebook: "20210817205410-2kvfpfn",
@@ -235,7 +235,7 @@ const getHPathByPathHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Get document HPath by path',
+                description: 'This example retrieves the human-readable path of a document using its notebook ID and file path, useful for displaying document locations.',
                 params: {
                     notebook: "20210817205410-2kvfpfn",
                     path: "/test/doc.md"
@@ -276,7 +276,7 @@ const getHPathByIDHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Get document HPath by ID',
+                description: 'This example demonstrates getting the human-readable path of a document using only its unique identifier, regardless of its notebook location.',
                 params: {
                     id: "20210817205410-2kvfpfn"
                 },

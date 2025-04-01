@@ -32,7 +32,7 @@ const sqlHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Execute SQL query',
+                description: 'This example demonstrates querying paragraph blocks with a limit of 7 results, showing how to use SQL to retrieve specific block types from the database.',
                 params: {
                     stmt: "SELECT * FROM blocks WHERE type = 'p' LIMIT 7"
                 },
@@ -79,7 +79,7 @@ const blockHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Query block by ID',
+                description: 'This example retrieves detailed information about a specific block using its unique identifier, including its type and content.',
                 params: {
                     id: "20200812220555-lj3enxa"
                 },

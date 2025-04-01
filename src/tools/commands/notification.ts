@@ -36,7 +36,7 @@ const pushMsgHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Push a message notification',
+                description: 'This example shows how to display a temporary notification message to the user for 7 seconds, useful for showing operation success or status updates.',
                 params: {
                     msg: "Hello World",
                     timeout: 7000
@@ -79,7 +79,7 @@ const pushErrMsgHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Push an error message notification',
+                description: 'This example demonstrates displaying an error notification that persists for 7 seconds, highlighting a failed operation or system issue to the user.',
                 params: {
                     msg: "Operation failed",
                     timeout: 7000

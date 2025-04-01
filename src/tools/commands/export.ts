@@ -44,7 +44,7 @@ const exportNotebookHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Export notebook as Markdown',
+                description: 'This example shows how to export an entire notebook as a Markdown archive, preserving the notebook structure and content in a compressed file.',
                 params: {
                     notebook: "20210817205410-2kvfpfn",
                     path: "/path/to/export",
@@ -98,7 +98,7 @@ const exportDocHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Export document as PDF',
+                description: 'This example demonstrates exporting a single document as a PDF file, converting all content and formatting to a portable document format.',
                 params: {
                     id: "20210817205410-2kvfpfn",
                     path: "/path/to/export",

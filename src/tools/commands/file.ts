@@ -33,7 +33,7 @@ const getFileHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Get file content',
+                description: 'This example retrieves the content of a specific file from the data directory, indicating whether it is a directory and returning its contents.',
                 params: {
                     path: "/data/20210808180117-6v0mkxr/20200923234011-ieuun1p.sy"
                 },
@@ -86,7 +86,7 @@ const putFileHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Put file content',
+                description: 'This example demonstrates writing new content to a file at the specified path, creating or updating the file as needed.',
                 params: {
                     path: "/data/20210808180117-6v0mkxr/20200923234011-ieuun1p.sy",
                     file: "New file content"
@@ -125,7 +125,7 @@ const removeFileHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Remove file',
+                description: 'This example shows how to permanently delete a file from the specified path in the data directory.',
                 params: {
                     path: "/data/20210808180117-6v0mkxr/20200923234011-ieuun1p.sy"
                 },
@@ -163,7 +163,7 @@ const readDirHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'List files in directory',
+                description: 'This example lists all files and directories within a specified directory, providing information about each item\'s type and name.',
                 params: {
                     path: "/data/20210808180117-6v0mkxr"
                 },

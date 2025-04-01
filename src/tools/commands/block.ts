@@ -50,7 +50,7 @@ const insertBlockHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Insert a block',
+                description: 'This example demonstrates inserting a new block with markdown content after a specific block and under a parent block, showing the hierarchical block structure manipulation.',
                 params: {
                     data: "New block content",
                     dataType: "markdown",
@@ -111,7 +111,7 @@ const updateBlockHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Update block content',
+                description: 'This example shows how to update the content of an existing block identified by its ID, converting the new content from markdown format.',
                 params: {
                     data: "Updated content",
                     dataType: "markdown",
@@ -159,7 +159,7 @@ const deleteBlockHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Delete a block',
+                description: 'This example demonstrates how to permanently remove a block from the document structure using its unique identifier.',
                 params: {
                     id: "20200812220555-lj3enxa"
                 },
@@ -216,7 +216,7 @@ const moveBlockHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Move a block',
+                description: 'This example shows how to relocate a block within the document structure by specifying its new position relative to other blocks.',
                 params: {
                     id: "20200812220555-lj3enxa",
                     previousID: "20200812220555-lj3enxa",
@@ -266,7 +266,7 @@ const getBlockKramdownHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Get block Kramdown content',
+                description: 'This example retrieves the Kramdown-formatted content of a specific block, useful for advanced markdown processing or external integrations.',
                 params: {
                     id: "20200812220555-lj3enxa"
                 },

@@ -36,7 +36,7 @@ const uploadAssetsHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Upload an image file',
+                description: 'This example demonstrates uploading a PNG image file to the assets directory, which will be renamed with a timestamp and unique ID in the response.',
                 params: {
                     assets: [
                         {

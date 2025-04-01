@@ -36,7 +36,7 @@ const setBlockAttrsHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Set block attributes',
+                description: 'This example shows how to set a custom attribute with key "custom-key" and value "custom-value" for a specific block identified by its ID.',
                 params: {
                     id: "20210817205410-2kvfpfn",
                     attrs: {
@@ -79,7 +79,7 @@ const getBlockAttrsHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Get block attributes',
+                description: 'This example retrieves all attributes of a document block, including its ID, type, and name, demonstrating how to access block metadata.',
                 params: {
                     id: "20210817205410-2kvfpfn"
                 },

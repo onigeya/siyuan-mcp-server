@@ -52,7 +52,7 @@ const forwardProxy: CommandHandler = {
         },
         examples: [
             {
-                description: 'Forward GET request',
+                description: 'This example demonstrates forwarding a GET request to an external API with an authorization header, showing how to proxy authenticated requests through the system.',
                 params: {
                     url: "https://api.example.com/data",
                     method: "GET",

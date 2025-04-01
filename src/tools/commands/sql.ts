@@ -32,7 +32,7 @@ const sqlHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Execute SQL query',
+                description: 'This example executes a SQL query to retrieve up to 7 paragraph blocks from the database, demonstrating basic block type filtering and result limiting.',
                 params: {
                     stmt: "SELECT * FROM blocks WHERE type = 'p' LIMIT 7"
                 },
