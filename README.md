@@ -11,94 +11,107 @@
 * 文件和资源的管理
 * SQL 查询支持
 * 自定义属性管理
+* 书签和标签管理
+* 文档导出和转换
 
-## 工具
+## 命令列表
 
-### 笔记本管理工具
+所有命令都支持使用 `man` 查询获取详细说明，例如：
 
-用于管理思源笔记中的笔记本。
+```json
+{
+  "type": "man",
+  "params": {
+    "type": "blocks.insert"
+  }
+}
+```
 
-**输入参数：**
+### 笔记本管理
 
-* `lsNotebooks`
-  * 无参数
-* `openNotebook`
-  * `notebookId` (string): 笔记本 ID
-* `closeNotebook`
-  * `notebookId` (string): 笔记本 ID
-* `createNotebook`
-  * `name` (string): 笔记本名称
-* `removeNotebook`
-  * `notebookId` (string): 笔记本 ID
-* `renameNotebook`
-  * `notebookId` (string): 笔记本 ID
-  * `name` (string): 新名称
-* `getNotebookConf`
-  * `notebookId` (string): 笔记本 ID
-* `setNotebookConf`
-  * `notebookId` (string): 笔记本 ID
-  * `conf` (object): 配置对象
+* `notebook.lsNotebooks` - 列出所有笔记本
+* `notebook.openNotebook` - 打开笔记本
+* `notebook.closeNotebook` - 关闭笔记本
+* `notebook.createNotebook` - 创建笔记本
+* `notebook.removeNotebook` - 删除笔记本
+* `notebook.renameNotebook` - 重命名笔记本
+* `notebook.getNotebookConf` - 获取笔记本配置
+* `notebook.setNotebookConf` - 设置笔记本配置
 
-### 文档管理工具
+### 文档管理
 
-用于创建和管理文档。
+* `documents.createDocWithMd` - 使用 Markdown 创建文档
+* `documents.renameDoc` - 重命名文档
+* `documents.removeDoc` - 删除文档
+* `documents.moveDocs` - 移动文档
+* `documents.getHPathByPath` - 获取文档可读路径
+* `documents.getHPathByID` - 通过 ID 获取文档可读路径
 
-**输入参数：**
+### 内容块操作
 
-* `createDocWithMd`
-  * `notebook` (string): 笔记本 ID
-  * `path` (string): 文档路径
-  * `markdown` (string): Markdown 内容
-* `renameDoc`
-  * `notebook` (string): 笔记本 ID
-  * `path` (string): 文档路径
-  * `title` (string): 新标题
-* `removeDoc`
-  * `notebook` (string): 笔记本 ID
-  * `path` (string): 文档路径
-* `moveDocs`
-  * `fromPaths` (string[]): 源路径列表
-  * `toNotebook` (string): 目标笔记本 ID
-  * `toPath` (string): 目标路径
+* `blocks.insert` - 插入内容块
+* `blocks.append` - 追加内容块
+* `blocks.prepend` - 前置插入内容块
+* `blocks.update` - 更新内容块
+* `blocks.delete` - 删除内容块
+* `blocks.move` - 移动内容块
+* `blocks.fold` - 折叠内容块
+* `blocks.unfold` - 展开内容块
+* `blocks.getKramdown` - 获取块的 Markdown 内容
+* `blocks.getChildren` - 获取子块列表
+* `blocks.transferRef` - 转移块引用
 
-### 内容块工具
+### 资源管理
 
-用于操作文档中的内容块。
+* `assets.upload` - 上传资源文件
+* `assets.remove` - 删除资源文件
 
-**输入参数：**
+### 属性管理
 
-* `insertBlock`
-  * `dataType` (string): 数据类型
-  * `data` (string): 块内容
-  * `previousID` (string): 前一个块的 ID
-* `updateBlock`
-  * `dataType` (string): 数据类型
-  * `data` (string): 块内容
-  * `id` (string): 块 ID
-* `deleteBlock`
-  * `id` (string): 块 ID
-* `moveBlock`
-  * `id` (string): 块 ID
-  * `previousID` (string, 可选): 前一个块的 ID
-  * `parentID` (string, 可选): 父块 ID
+* `attributes.getBlockAttrs` - 获取块属性
+* `attributes.setBlockAttrs` - 设置块属性
+
+### 书签管理
+
+* `bookmarks.getBookmark` - 获取书签
+* `bookmarks.renameBookmark` - 重命名书签
+* `bookmarks.removeBookmark` - 删除书签
+* `bookmarks.moveBookmark` - 移动书签
+
+### 文件操作
+
+* `file.readDir` - 读取目录内容
+* `file.removeFile` - 删除文件
+* `file.putFile` - 写入文件内容
+* `file.getFile` - 获取文件内容
+
+### 导出转换
+
+* `export.exportMdContent` - 导出 Markdown 内容
+* `export.exportDocx` - 导出 Word 文档
+
+### 网络代理
+
+* `network.serveProxy` - 网络请求代理
+
+### 通知提醒
+
+* `notification.pushMsg` - 发送消息通知
+* `notification.pushErrMsg` - 发送错误通知
 
 ## 使用说明
 
-本 MCP 服务器设计用于：
+### 环境变量配置
 
-* AI 模型与思源笔记的无缝集成
-* 自动化笔记管理和组织
-* 智能文档处理和生成
-* 结构化知识管理
-* 高级数据查询和分析
+服务器需要配置以下环境变量：
 
-## 配置
+* `SIYUAN_TOKEN` - 思源笔记 API 令牌（必需）
+  * 在思源笔记设置 - 关于 中查看
+  * 用于 API 认证
 
 ### 在 Claude Desktop 中使用
 
 将以下配置添加到 `claude_desktop_config.json`：
-
-#### npx
 
 ```json
 {
@@ -108,28 +121,42 @@
       "args": [
         "-y",
         "@onigeya/siyuan-mcp-server"
-      ]
+      ],
+      "env": {
+        "SIYUAN_TOKEN": "你的思源笔记令牌"
+      }
     }
   }
 }
 ```
 
-#### docker
+### 本地运行
 
-```json
-{
-  "mcpServers": {
-    "siyuan": {
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "-i",
-        "mcp/siyuan"
-      ]
-    }
-  }
-}
+1. 安装依赖：
+```bash
+pnpm install
+```
+
+2. 设置环境变量：
+```bash
+# Windows
+set SIYUAN_TOKEN=你的思源笔记令牌
+
+# Linux/macOS
+export SIYUAN_TOKEN=你的思源笔记令牌
+```
+
+3. 启动服务：
+```bash
+pnpm start
+```
+
+### Docker 运行
+
+```bash
+docker run --rm -i \
+  -e SIYUAN_TOKEN=你的思源笔记令牌 \
+  mcp/siyuan
 ```
 
 ## 构建
@@ -141,27 +168,19 @@
 
 ### 本地构建
 
-Windows:
-
-```cmd
-.\build.cmd
+```bash
+pnpm build
 ```
 
-或手动指定Node.js版本：
-
-```cmd
-D:\nvm\v23.10.0\node.exe D:\nvm\v23.10.0\node_modules\pnpm\bin\pnpm.cjs build
-```
-
-### Docker构建
+### Docker 构建
 
 ```bash
-docker build -t mcp/siyuan -f Dockerfile .
+docker build -t mcp/siyuan .
 ```
 
 ## 许可证
 
-本 MCP 服务器基于 ISC 许可证发布。这意味着你可以自由使用、修改和分发本软件，但需要遵守 ISC 许可证的条款和条件。详细信息请参见项目仓库中的 LICENSE 文件。
+本项目基于 ISC 许可证发布。这意味着你可以自由使用、修改和分发本软件，但需要遵守 ISC 许可证的条款和条件。详细信息请参见项目仓库中的 LICENSE 文件。
 
 ## 相关资源
 
