@@ -134,7 +134,26 @@
 
 ## 构建
 
-Docker:
+### 环境要求
+
+* Node.js >= 23.10.0
+* pnpm
+
+### 本地构建
+
+Windows:
+
+```cmd
+.\build.cmd
+```
+
+或手动指定Node.js版本：
+
+```cmd
+D:\nvm\v23.10.0\node.exe D:\nvm\v23.10.0\node_modules\pnpm\bin\pnpm.cjs build
+```
+
+### Docker构建
 
 ```bash
 docker build -t mcp/siyuan -f Dockerfile .
