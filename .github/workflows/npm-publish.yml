@@ -8,7 +8,7 @@ on:
     types: [created]
 
 jobs:
-  prepare:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,15 +16,6 @@ jobs:
         with:
           node-version: 23
       - run: npm install
-
-  build:
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 23
       - run: npm run build
 
   publish-npm:
