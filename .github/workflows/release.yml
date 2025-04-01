@@ -41,9 +41,10 @@ jobs:
             git log --pretty=format:"* %s (%h)" $PREVIOUS_TAG..HEAD > CHANGELOG.md
           fi
           # 将 changelog 内容设置为输出变量，用于后续步骤
-          echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+          delimiter="CHANGELOG_EOF"
+          echo "CHANGELOG<<$delimiter" >> $GITHUB_OUTPUT
           cat CHANGELOG.md >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "$delimiter" >> $GITHUB_OUTPUT
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
