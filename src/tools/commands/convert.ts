@@ -41,7 +41,7 @@ const pandocHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Convert Markdown to HTML',
+                description: 'This example demonstrates converting a Markdown file to HTML using Pandoc, specifying the input and output formats while working in a specific directory.',
                 params: {
                     dir: "/path/to/working/dir",
                     args: [

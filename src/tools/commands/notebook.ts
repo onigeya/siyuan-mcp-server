@@ -54,7 +54,7 @@ const lsNotebooksHandler: CommandHandler = {
         },
         examples: [
             {
-                description: '列出所有笔记本',
+                description: 'This example retrieves a list of all notebooks in the system, including their IDs, names, icons, sort order, and current status.',
                 params: {},
                 response: {
                     notebooks: [
@@ -96,7 +96,7 @@ const openNotebookHandler: CommandHandler = {
         },
         examples: [
             {
-                description: '打开指定笔记本',
+                description: 'This example demonstrates opening a previously closed notebook using its unique identifier, making it available for access and editing.',
                 params: {
                     notebook: "20210817205410-2kvfpfn"
                 },
@@ -130,7 +130,7 @@ const closeNotebookHandler: CommandHandler = {
         },
         examples: [
             {
-                description: '关闭指定笔记本',
+                description: 'This example shows how to close a notebook temporarily, preventing access to its contents while preserving all data.',
                 params: {
                     notebook: "20210817205410-2kvfpfn"
                 },
@@ -169,7 +169,7 @@ const renameNotebookHandler: CommandHandler = {
         },
         examples: [
             {
-                description: '重命名笔记本',
+                description: 'This example demonstrates changing the display name of an existing notebook while maintaining all its contents and settings.',
                 params: {
                     notebook: "20210817205410-2kvfpfn",
                     name: "新笔记本名称"
@@ -206,7 +206,7 @@ const createNotebookHandler: CommandHandler = {
         },
         examples: [
             {
-                description: '创建新笔记本',
+                description: 'This example shows how to create a new notebook with a specified name, which will be initialized with default settings and structure.',
                 params: {
                     name: "新笔记本"
                 },
@@ -242,7 +242,7 @@ const removeNotebookHandler: CommandHandler = {
         },
         examples: [
             {
-                description: '删除指定笔记本',
+                description: 'This example demonstrates permanently removing a notebook and all its contents from the system using its unique identifier.',
                 params: {
                     notebook: "20210817205410-2kvfpfn"
                 },
@@ -283,7 +283,7 @@ const getNotebookConfHandler: CommandHandler = {
         },
         examples: [
             {
-                description: '获取笔记本配置',
+                description: 'This example retrieves the complete configuration of a notebook, including its name, status, and various path and template settings.',
                 params: {
                     notebook: "20210817205410-2kvfpfn"
                 },

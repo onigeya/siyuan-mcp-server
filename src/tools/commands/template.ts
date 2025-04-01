@@ -38,7 +38,7 @@ const renderTemplateHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Render template',
+                description: 'This example demonstrates rendering a template block at a specific target path, creating a new block with the rendered content and returning its ID.',
                 params: {
                     id: "20200812220555-lj3enxa",
                     path: "/path/to/target"
@@ -85,7 +85,7 @@ const renderSprigHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Render Sprig template',
+                description: 'This example shows how to render a Sprig template with a context variable, replacing the placeholder {{ .name }} with the value "World" to generate personalized content.',
                 params: {
                     template: "Hello {{ .name }}!",
                     context: {

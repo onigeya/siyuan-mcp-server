@@ -76,7 +76,7 @@ const fullTextSearchHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Full text search',
+                description: 'This example performs a keyword-based search across documents and headings in a specific path, grouping results by notebook and returning the first page of 10 matches.',
                 params: {
                     query: "keyword",
                     method: 0,

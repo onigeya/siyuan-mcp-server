@@ -25,7 +25,7 @@ const getBootProgressHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Get boot progress',
+                description: 'This example retrieves the current boot progress status, showing both the percentage completed and detailed status information.',
                 params: {},
                 response: {
                     progress: 100,
@@ -57,7 +57,7 @@ const getVersionHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Get system version',
+                description: 'This example retrieves the current system version and operating system information, useful for compatibility checking and system reporting.',
                 params: {},
                 response: {
                     version: "2.8.8",
@@ -88,7 +88,7 @@ const getCurrentTimeHandler: CommandHandler = {
         },
         examples: [
             {
-                description: 'Get current time',
+                description: 'This example gets the current system time in milliseconds since the Unix epoch, useful for timestamp generation and time synchronization.',
                 params: {},
                 response: {
                     time: 1629158400000
