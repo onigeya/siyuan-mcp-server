@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/onigeya-siyuan-mcp-server-badge.png)](https://mseep.ai/app/onigeya-siyuan-mcp-server)
+
 # SiYuan Note MCP Server
 [![smithery badge](https://smithery.ai/badge/@onigeya/siyuan-mcp-server)](https://smithery.ai/server/@onigeya/siyuan-mcp-server)
 
