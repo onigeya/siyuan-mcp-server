@@ -1,7 +1,10 @@
 {
   "name": "@onigeya/siyuan-mcp-server",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "description": "思源笔记MCP服务器",
+  "bin": {
+    "siyuan-mcp-server": "./dist/server.js"
+  },
   "type": "module",
   "private": false,
   "main": "./dist/server.js",
